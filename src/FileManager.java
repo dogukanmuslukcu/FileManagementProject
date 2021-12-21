@@ -107,9 +107,10 @@ public class FileManager {
                 data = scanner.nextLine();
             }
             String data2 = data.replace(resarchWord, updateWord);
-            scanner.close();
             manager.write("tempFile", data2);
             manager.copyFile(fileName, "tempFile");
+            scanner.close();
+            manager.delete("tempFile");
 
         } catch (FileNotFoundException exception) {
             System.out.println("Dosya güncellenirken hata alındı.");
